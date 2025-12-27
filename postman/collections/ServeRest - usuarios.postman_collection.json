@@ -1,0 +1,70 @@
+{
+  "info": {
+    "_postman_id": "2de924c1-8b94-4831-8945-54b4d05c766c",
+    "name": "ServeRest - usuarios",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Listar usuários",
+      "id": "44e25b11-649c-4795-a3a2-df89412ac094",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{teste}}usuarios",
+          "host": [
+            "{{teste}}usuarios"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Cadastrar usuário",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "4cd35421-a55d-4896-bea0-f03ed9c5a1ba",
+            "exec": [
+              "pm.test(\"Status code é 201\", function () {\r",
+              "    pm.response.to.have.status(201);\r",
+              "});\r",
+              "pm.test(\"Validar cadastro\", function () {\r",
+              "    pm.expect(pm.response.text()).to.include(\"Cadastro realizado com sucesso\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "id": "e60e20b2-d7b2-4962-9a1b-a45923054a08",
+      "protocolProfileBehavior": {
+        "protocolVersion": "http1"
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"nome\": \"Caio Lucas 2\",\r\n  \"email\": \"caio-qa2@teste.com.br\",\r\n  \"password\": \"teste\",\r\n  \"administrador\": \"true\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{teste}}usuarios",
+          "host": [
+            "{{teste}}usuarios"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
