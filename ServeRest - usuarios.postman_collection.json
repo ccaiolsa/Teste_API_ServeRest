@@ -1,0 +1,211 @@
+{
+	"info": {
+		"_postman_id": "2de924c1-8b94-4831-8945-54b4d05c766c",
+		"name": "ServeRest - usuarios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47538808",
+		"_collection_link": "https://ccaiolsa-693814.postman.co/workspace/92fc6a53-e282-40e1-8cc8-3cf6c731bde0/collection/47538808-2de924c1-8b94-4831-8945-54b4d05c766c?action=share&source=collection_link&creator=47538808"
+	},
+	"item": [
+		{
+			"name": "Listar usuários",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{teste}}usuarios",
+					"host": [
+						"{{teste}}usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar usuário",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code é 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"Validar cadastro\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Cadastro realizado com sucesso\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"protocolVersion": "http1"
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"Caio Lucas 2\",\r\n  \"email\": \"caio-qa2@teste.com.br\",\r\n  \"password\": \"teste\",\r\n  \"administrador\": \"true\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{teste}}usuarios",
+					"host": [
+						"{{teste}}usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar usuário",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code é 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"protocolVersion": "http1"
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{teste}}usuarios/0uxuPY0cbmQhpEz1",
+					"host": [
+						"{{teste}}usuarios"
+					],
+					"path": [
+						"0uxuPY0cbmQhpEz1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Excluir usuário",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code é 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Validar ação\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Registro excluído com sucesso\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"protocolVersion": "http1"
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{teste}}usuarios/FmJcnmaCJccImpzJ",
+					"host": [
+						"{{teste}}usuarios"
+					],
+					"path": [
+						"FmJcnmaCJccImpzJ"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar usuário",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code é 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Validar ação\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Registro alterado com sucesso\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"protocolVersion": "http1"
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "        {\r\n            \"nome\": \"Caio Lucas Souza de Araújo\",\r\n            \"email\": \"caio-qa@teste.com.br\",\r\n            \"password\": \"teste\",\r\n            \"administrador\": \"true\"\r\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{teste}}usuarios/i5tj9mScxv1DIMMz",
+					"host": [
+						"{{teste}}usuarios"
+					],
+					"path": [
+						"i5tj9mScxv1DIMMz"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
