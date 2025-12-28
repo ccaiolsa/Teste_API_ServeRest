@@ -65,6 +65,154 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "Buscar usuário",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "f16b21d3-7c57-45ed-9e11-9d7f02569c3f",
+            "exec": [
+              "pm.test(\"Status code é 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "id": "84eec6f6-c0d6-415e-b647-2da88aa37754",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true,
+        "protocolVersion": "http1"
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{teste}}usuarios/0uxuPY0cbmQhpEz1",
+          "host": [
+            "{{teste}}usuarios"
+          ],
+          "path": [
+            "0uxuPY0cbmQhpEz1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Excluir usuário",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "f16b21d3-7c57-45ed-9e11-9d7f02569c3f",
+            "exec": [
+              "pm.test(\"Status code é 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "pm.test(\"Validar ação\", function () {\r",
+              "    pm.expect(pm.response.text()).to.include(\"Registro excluído com sucesso\");\r",
+              "});\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "id": "568d7147-9a54-4d38-9711-897a2cf27d0b",
+      "protocolProfileBehavior": {
+        "protocolVersion": "http1"
+      },
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{teste}}usuarios/FmJcnmaCJccImpzJ",
+          "host": [
+            "{{teste}}usuarios"
+          ],
+          "path": [
+            "FmJcnmaCJccImpzJ"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Editar usuário",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "f16b21d3-7c57-45ed-9e11-9d7f02569c3f",
+            "exec": [
+              "pm.test(\"Status code é 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "pm.test(\"Validar ação\", function () {\r",
+              "    pm.expect(pm.response.text()).to.include(\"Registro alterado com sucesso\");\r",
+              "});\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "id": "7c64b212-1e21-4fc7-88e4-0b4e76c542cd",
+      "protocolProfileBehavior": {
+        "protocolVersion": "http1"
+      },
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "        {\r\n            \"nome\": \"Caio Lucas Souza de Araújo\",\r\n            \"email\": \"caio-qa@teste.com.br\",\r\n            \"password\": \"teste\",\r\n            \"administrador\": \"true\"\r\n        }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{teste}}usuarios/i5tj9mScxv1DIMMz",
+          "host": [
+            "{{teste}}usuarios"
+          ],
+          "path": [
+            "i5tj9mScxv1DIMMz"
+          ]
+        }
+      },
+      "response": []
     }
   ]
 }
